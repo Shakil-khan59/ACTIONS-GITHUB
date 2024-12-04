@@ -1,42 +1,30 @@
 name: Basic Workflow
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI or API.
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts.
     inputs:
       name:
-        # Friendly description to be shown in the UI instead of 'name'
         description: 'Person to greet'
-        # Default value if no value is explicitly provided
         default: 'World'
-        # Input has to be provided for the workflow to run
         required: true
         type: string
-      slill:
-        description: "Your top skills to share?"
+      skill:
+        description: "Your top skill to share"
         required: true
         default: "Machine Learning"
-        type: choice
-        options:
-        - Deep Learning
-        - LLM
-        - Ai agents
+        type: string
       language:
-        description: "Your are great: "
+        description: "Are you great? (true/false)"
         required: true
         type: boolean
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   greet:
-    runs-on: 
-      - ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
-    
-    - name: Send greeting
-      run: |
-        echo "Hello ${{ github.event.inputs.name }}" 
-        echo "Your favorite city is ${{ github.event.inputs.skill }}"
-        echo "Is your favorite color blue: ${{ github.event.inputs.language }}"
+      - name: Send greeting
+        run: |
+          echo "Hello ${{ github.event.inputs.name }}" 
+          echo "Your top skill is ${{ github.event.inputs.skill }}"
+          echo "Are you great? Answer: ${{ github.event.inputs.language }}"
