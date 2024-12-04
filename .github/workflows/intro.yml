@@ -23,7 +23,7 @@ on:
         - LLM
         - Ai agents
       language:
-        description: "Your favorite programming language?"
+        description: "Your are great: "
         required: true
         type: boolean
 
