@@ -14,7 +14,7 @@ on:
         required: true
         type: string
       slill:
-        description: "Your top skills?"
+        description: "Your top skills to share?"
         required: true
         default: "Machine Learning"
         type: choice
